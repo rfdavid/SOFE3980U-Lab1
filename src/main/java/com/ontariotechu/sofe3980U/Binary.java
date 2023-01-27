@@ -92,22 +92,30 @@ public class Binary
     // the index of the first digit of each number
     int ind1=num1.number.length()-1;
     int ind2=num2.number.length()-1;
-    int bit;
+    int bit; // the result bit after each iteration
     while(ind1>=0 || ind2>=0) // loop until all digits are processed
     {
+      // assume the bit is 0, unless prove otherwise (found any 1 bit)
       bit = 0;
+      /* check the first number num1
+       * if find bit 1, then we assume the result bit is 1
+       */
       if(ind1>=0) {
         if (num1.number.charAt(ind1) == '1') {
           bit = 1;
         }
         ind1--;
       }
+      /* check the second number num2
+       * if find bit 1, then the result bit is 1
+       */
       if(ind2>=0) {
         if (num2.number.charAt(ind2) == '1') {
           bit = 1;
         }
         ind2--;
       }
+      // append final result to num3
       num3 = bit + num3;
     }
     Binary result=new Binary(num3);
@@ -128,23 +136,33 @@ public class Binary
     // the index of the first digit of each number
     int ind1=num1.number.length()-1;
     int ind2=num2.number.length()-1;
-    int bit;
+    int bit; // the result bit after each iteration
     while(ind1>=0 || ind2>=0) // loop until all digits are processed
     {
+      // assume the bit is always 1, until proves otherwise
       bit = 1;
-      if(ind1>=0) {
-        if ((ind2<0) || (num1.number.charAt(ind1) == '0')) {
+      if (ind1>=0) {
+        // bit is 0, and is false
+        if (num1.number.charAt(ind1) == '0') {
           bit = 0;
         }
         ind1--;
+      } else {
+        // first number ended, bit is 0
+        bit = 0;
       }
-      if(ind2>=0) {
-        if ((ind1<0) || (num2.number.charAt(ind2) == '0')) {
+      if (ind2>=0) {
+        // bit is 0, and is false
+        if (num2.number.charAt(ind2) == '0') {
           bit = 0;
         }
         ind2--;
+      } else {
+        // second number ended, bit is 0
+        bit = 0;
       }
-      num3 = bit + num3;
+      // append final result to num3
+      num3 = "" + bit + num3;
     }
     Binary result=new Binary(num3);
     return result;
@@ -152,7 +170,7 @@ public class Binary
   /**
    * Multiply two binary numbers  
    * Example:
-   *   0100 X 1100 = 0100
+   *   0100 X 1100 = 10000
    * @param num1 The first number to multiply 
    * @param num2 The second number to multiply 
    * @return A binary variable with a value of <i>num1 X num2</i>.
@@ -164,13 +182,14 @@ public class Binary
     Binary num3=new Binary("0");
     while(ind2>=0) // loop the second number 
     {
-      // add 0 to num1
-      num1.number = num1.number + "0";
       // if is 0, do nothing, but if it is 1, sum num1 to num3
       if (num2.number.charAt(ind2) == '1') {
         num3 = Binary.add(num1, num3);
       }
       ind2--;
+
+      // add 0 to num1
+      num1.number = num1.number + "0";
     }
     return num3;
   }

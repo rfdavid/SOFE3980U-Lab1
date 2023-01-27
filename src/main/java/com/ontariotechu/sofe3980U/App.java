@@ -3,7 +3,9 @@ package com.ontariotechu.sofe3980U;
 import org.joda.time.LocalTime;
 
 /**
- * Hello world!
+ * Main Application Class
+ * Call all the operators functions from the file (or, and, add, mult)
+ * and print the output for each of them
  *
  */
 public class App 
