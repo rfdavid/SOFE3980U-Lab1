@@ -129,7 +129,7 @@ public class BinaryTest
     public void testAnd(){
         Binary binary1=new Binary("1010");
         Binary binary2=new Binary("1001");
-        Binary result=Binary.add(binary1, binary2);
+        Binary result=Binary.and(binary1, binary2);
         assertTrue(result.getValue().equals("1000"));
     }
     @Test 
