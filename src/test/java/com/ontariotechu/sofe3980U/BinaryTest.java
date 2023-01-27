@@ -118,4 +118,25 @@ public class BinaryTest
 		Binary binary3=Binary.add(binary1,binary2);
         assertTrue( binary3.getValue().equals("0"));
     }
+    @Test 
+    public void testOr(){
+        Binary binary1=new Binary("1010");
+        Binary binary2=new Binary("1001");
+        Binary result=Binary.or(binary1, binary2);
+        assertTrue(result.getValue().equals("1011"))
+    }
+    @Test 
+    public void testAnd(){
+        Binary binary1=new Binary("1010");
+        Binary binary2=new Binary("1001");
+        Binary result=Binary.add(binary1, binary2);
+        assertTrue(result.getValue().equals("1000"))
+    }
+    @Test 
+    public void testMult(){
+        Binary binary1=new Binary("1010");
+        Binary binary2=new Binary("1001");
+        Binary result=Binary.mult(binary1, binary2);
+        assertTrue(result.getValue().equals("1011010"))
+    }
 }
