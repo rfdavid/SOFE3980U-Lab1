@@ -10,6 +10,10 @@ import org.junit.Test;
 public class BinaryTest 
 {
   /**
+   * Creating the Binary objects before starting the tests
+   */
+
+  /**
    * Test The constructor with a valid binary vallue
    */
   @Test
@@ -46,7 +50,7 @@ public class BinaryTest
     assertTrue( binary.getValue().equals("0"));
   }
   /**
-   * T	est The constructor with a zero tailing valid binary value
+   * Test The constructor with a zero tailing valid binary value
    */
   @Test
   public void constructorWithZeroTailing()
@@ -119,20 +123,12 @@ public class BinaryTest
     assertTrue( binary3.getValue().equals("0"));
   }
   @Test 
-  /**
-   * Test 1010 OR 1001 operation
-   * Expect: 1011
-   */
   public void testOr(){
     Binary binary1=new Binary("1010");
     Binary binary2=new Binary("1001");
     Binary result=Binary.or(binary1, binary2);
     assertTrue(result.getValue().equals("1011"));
   }
-  /** 
-   * Test 1010 AND 1001 operation
-   * Expect: 1000
-   */
   @Test 
   public void testAnd(){
     Binary binary1=new Binary("1010");
@@ -140,10 +136,6 @@ public class BinaryTest
     Binary result=Binary.and(binary1, binary2);
     assertTrue(result.getValue().equals("1000"));
   }
-  /**
-   * Test 1010 x 1001 operation
-   * Expect: 1011010
-   */
   @Test 
   public void testMult(){
     Binary binary1=new Binary("1010");
