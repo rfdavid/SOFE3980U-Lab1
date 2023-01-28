@@ -27,7 +27,7 @@ public class Binary
   
   private String checkBinary(String number){
     // guard clause for empty string
-    if(this.number=="") { 
+    if(number=="") { 
       return "0";
     }
 
@@ -67,11 +67,10 @@ public class Binary
     return this.number;
   }
 
-  
+
    /**
    * Return the binary value of the variable
-   *
-   * @return the binary value in a string format.
+   * @param number the value to set the binary number to
    */
   public void setValue(String number)
   {
