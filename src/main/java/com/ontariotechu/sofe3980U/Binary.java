@@ -40,7 +40,7 @@ public class Binary
     }
     
     // remove any trailing zeros before returning
-    this.number = removeTrailingZeros(number);
+    number = removeTrailingZeros(number);
     return number; // otherwise return the number
   }
 
